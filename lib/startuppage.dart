@@ -1,4 +1,4 @@
-import 'package:edtechapp/common/colors.dart';
+import 'package:edtechapp/common/values/colors.dart';
 import 'package:edtechapp/loginSignup/login/login.dart';
 import 'package:flutter/material.dart';
 
