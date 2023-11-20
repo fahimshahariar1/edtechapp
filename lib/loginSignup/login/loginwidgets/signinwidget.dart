@@ -47,7 +47,11 @@ Widget reusableTexts(String text) {
   );
 }
 
-Widget buildTextfield(String hinttext, String textType) {
+Widget buildTextfield(String hinttext, String textType,
+
+    void Function(String value)? func
+
+    ) {
   return Container(
     padding: EdgeInsets.only(left: 20, right: 20, bottom: 2),
     margin: EdgeInsets.all(10),
@@ -58,6 +62,7 @@ Widget buildTextfield(String hinttext, String textType) {
         borderRadius: BorderRadius.circular(40),
   ),
   child: TextField(
+    onChanged:  (value)=>func!(value) ,
     decoration: InputDecoration(
       hintText: hinttext, hintStyle: TextStyle(
       color: AppColors.fontcolor2
