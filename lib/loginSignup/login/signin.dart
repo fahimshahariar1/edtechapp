@@ -1,13 +1,16 @@
-import 'package:edtechapp/common/values/colors.dart';
-import 'package:edtechapp/loginSignup/login/bloc/signinBLocs.dart';
-import 'package:edtechapp/loginSignup/login/bloc/signinStates.dart';
-import 'package:edtechapp/loginSignup/login/loginwidgets/signinwidget.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../common/values/colors.dart';
+
+import 'bloc/signinBLocs.dart';
 import 'bloc/signinEvents.dart';
+import 'bloc/signinStates.dart';
+import 'loginwidgets/signinwidget.dart';
 
 class Signin extends StatefulWidget {
   const Signin({super.key});

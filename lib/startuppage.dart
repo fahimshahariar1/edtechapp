@@ -1,6 +1,8 @@
-import 'package:edtechapp/common/values/colors.dart';
-import 'package:edtechapp/loginSignup/login/login.dart';
+
 import 'package:flutter/material.dart';
+
+import 'common/values/colors.dart';
+import 'loginSignup/login/login.dart';
 
 class StartUp extends StatefulWidget {
   const StartUp({super.key});

@@ -1,5 +1,6 @@
-import 'package:edtechapp/loginSignup/login/bloc/signinEvents.dart';
-import 'package:edtechapp/loginSignup/login/bloc/signinStates.dart';
+
+import 'package:elearningapp1/loginSignup/login/bloc/signinEvents.dart';
+import 'package:elearningapp1/loginSignup/login/bloc/signinStates.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignInBloc extends Bloc<SignInEvent, SignInState>{

@@ -1,8 +1,9 @@
-import 'package:edtechapp/common/values/colors.dart';
-import 'package:edtechapp/loginSignup/login/signin.dart';
+
+import 'package:elearningapp1/loginSignup/login/signin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../common/values/colors.dart';
 import 'loginwidgets/signinwidget.dart';
 
 class Login extends StatefulWidget {
