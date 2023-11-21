@@ -41,6 +41,7 @@ dependencies:
   intl:
   cloud_firestore: ^4.8.4
   firebase_auth: ^4.7.2
+  flashy_tab_bar2: ^0.0.6
   fluttertoast:
 
 dev_dependencies:

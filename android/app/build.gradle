@@ -33,6 +33,7 @@ android {
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
     defaultConfig{
+        minSdkVersion 21
         multiDexEnabled true
     }
 

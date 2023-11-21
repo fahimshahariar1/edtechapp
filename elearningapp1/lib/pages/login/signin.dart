@@ -1,4 +1,5 @@
 
+import 'package:elearningapp1/pages/home/homepage.dart';
 import 'package:elearningapp1/pages/login/signinController.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -63,6 +64,7 @@ class _SigninState extends State<Signin> {
               onTap: () {
 
                  SignInController(context).handleSignIn("email");
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
 
               },
               child: Container(

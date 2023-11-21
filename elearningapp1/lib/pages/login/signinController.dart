@@ -22,7 +22,7 @@ class SignInController {
         }
         if (pass.isEmpty) {
           toastInfo(msg: "Password Is Empty");
-          return;
+
         }
 
         try {
@@ -46,12 +46,15 @@ class SignInController {
         on FirebaseAuthException catch (e) {
           if (e.code == "user-not-found") {
             toastInfo(msg: "User Not Found");
+            return;
           }
           else if (e.code == "wrong-password") {
             toastInfo(msg: "Wrong Password");
+            return;
           }
           else if (e.code == "invalid-email") {
             toastInfo(msg: "Invalid Email");
+            return;
           }
         }
       }
