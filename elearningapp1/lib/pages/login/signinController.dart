@@ -8,7 +8,7 @@ import 'bloc/signinBLocs.dart';
 class SignInController {
   final BuildContext context;
 
-  SignInController(this.context, {required BuildContext context});
+  SignInController(this.context,);
 
   Future<void> handleSignIn(String type) async {
     try {

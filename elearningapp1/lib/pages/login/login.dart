@@ -1,6 +1,7 @@
 
 
 import 'package:elearningapp1/pages/login/signin.dart';
+import 'package:elearningapp1/pages/register/register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -88,7 +89,9 @@ class _LoginState extends State<Login> {
                     style: TextStyle(color: AppColors.fontcolor),
                   ),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Register()));
+                      },
                       child: const Text(
                         "Create an Account",
                         style: TextStyle(color: AppColors.buttonColor),

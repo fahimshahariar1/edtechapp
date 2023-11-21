@@ -61,7 +61,9 @@ class _SigninState extends State<Signin> {
               ),),
             GestureDetector(
               onTap: () {
-                SignInController(context, context: context).handleSignIn("email");
+
+                 SignInController(context).handleSignIn("email");
+
               },
               child: Container(
                 height: 30.h,

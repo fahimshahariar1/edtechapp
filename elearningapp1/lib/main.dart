@@ -1,7 +1,9 @@
 
 import 'package:elearningapp1/pages/blocprovider.dart';
-import 'package:elearningapp1/pages/login/bloc/signinBLocs.dart';
+
 import 'package:elearningapp1/pages/login/login.dart';
+import 'package:elearningapp1/pages/login/signin.dart';
+import 'package:elearningapp1/pages/register/register.dart';
 import 'package:elearningapp1/startuppage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,8 +33,10 @@ class MyApp extends StatelessWidget {
           title: 'Interactive Cares',
           home: StartUp(),
           routes: {
-            "login": (context) => Login(),
-          },
+                    "login": (context) => const Login(),
+            "signIn": (context) => const Signin(),
+            "register": (context) =>const Register(),
+        },
         ),
       ),
     );
