@@ -65,7 +65,7 @@ SizedBox(height: 30.h,),
 
                   const Text(
                     "Register",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   )
                 ],
               ),
