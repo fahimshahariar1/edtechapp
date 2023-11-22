@@ -1,5 +1,8 @@
 
+
+import 'package:elearningapp1/pages/application/application.dart';
 import 'package:elearningapp1/pages/blocprovider.dart';
+import 'package:elearningapp1/pages/home/homepage.dart';
 
 import 'package:elearningapp1/pages/login/login.dart';
 import 'package:elearningapp1/pages/login/signin.dart';
@@ -28,10 +31,11 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: AppBlocProvider.allBlocProviders,
       child: ScreenUtilInit(
+        designSize: const Size(375, 812),
         builder: (context, child) => MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Interactive Cares',
-          home: StartUp(),
+          home: Application(),
           routes: {
                     "login": (context) => const Login(),
             "signIn": (context) => const Signin(),

@@ -1,9 +1,10 @@
-import 'package:elearningapp1/pages/bookmarks/bookmarks.dart';
-import 'package:elearningapp1/pages/courses/courses.dart';
-import 'package:elearningapp1/pages/navbar.dart';
-import 'package:elearningapp1/pages/profile/profile.dart';
-import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
+
+
+import 'package:elearningapp1/pages/home/widgets/homewidgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -19,7 +20,23 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: NavBar(),
+
+appBar: buildAppbar(),
+      body: Container(
+        margin: EdgeInsets.symmetric(horizontal: 25.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            
+            homePageText("hello"),
+            homePageText("Fahim"),
+            SizedBox(height: 10.h,),
+            searchView(),
+          ],
+        ),
+      ),
+
+
     );
   }
 }
