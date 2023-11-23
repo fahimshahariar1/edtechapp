@@ -1,10 +1,11 @@
+import 'package:elearningapp1/pages/home/homepage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Widget buildPage(int index){
 
   List<Widget> widget = [
-Center(child: Text("Home")),
+Home(),
 Center(child: Text("Course")),
 Center(child: Text("Bookmark")),
 Center(child: Text("Profile")),

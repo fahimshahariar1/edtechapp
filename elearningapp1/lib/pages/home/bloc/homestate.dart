@@ -3,7 +3,7 @@ class HomePageState{
 
   final int index;
 
-  HomePageState copyWith(int? index){
+  HomePageState copyWith({int? index}){
     return HomePageState(index: index?? this.index);
   }
 

@@ -104,7 +104,6 @@ Widget sliderview(BuildContext context, HomePageState state) {
           onPageChanged: (value) {
             context.read<HomePageBlocs>().add(HomePageDots(value));
           },
-
           children: [
             sliderContainer(),
             sliderContainer(),
@@ -114,9 +113,8 @@ Widget sliderview(BuildContext context, HomePageState state) {
       ),
       Container(
         child: DotsIndicator(
-          dotsCount:3,
+          dotsCount: 3,
           position: state.index,
-
         ),
       )
     ],
@@ -129,12 +127,11 @@ Widget sliderContainer({String path = "assets/icons/art.png"}) {
     height: 162.h,
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.h),
-        image:
-            DecorationImage(fit: BoxFit.fill, image: AssetImage(path))),
+        image: DecorationImage(fit: BoxFit.fill, image: AssetImage(path))),
   );
 }
 
-Widget menuView(){
+Widget menuView() {
   return Column(
     children: [
       Container(
@@ -142,25 +139,33 @@ Widget menuView(){
         margin: EdgeInsets.only(top: 15.h),
         child: Row(
           children: [
-           reusableSubText(),
+            reusableSubText("Let's Explore The Latest Courses!"),
+            GestureDetector(child: reusableSubText("See All")),
+          ],
+        ),
+      ),
+      Container(
+        child: Row(
+          children: [
+
           ],
         ),
       ),
       reusableMenuText("ALL"),
       reusableMenuText("Popular"),
       reusableMenuText("Newest"),
+
     ],
   );
 }
 
-Widget reusableSubText(){
-  return  Container(
-    child: Text("Let's Explore The Latest Courses!"),
+Widget reusableSubText(String text) {
+  return Container(
+    child: Text(text),
   );
 }
 
-
-Widget reusableMenuText(String menuText){
+Widget reusablesubTitleText(String menuText) {
   return Container(
     child: Row(
       children: [
@@ -172,5 +177,13 @@ Widget reusableMenuText(String menuText){
         )
       ],
     ),
+  );
+}
+
+Widget reusableMenuText(String text) {
+  return  Container(
+    decoration: BoxDecoration(color: Colors.red),
+    child: reusableTexts(text),
+
   );
 }

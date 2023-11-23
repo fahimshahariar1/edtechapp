@@ -1,7 +1,7 @@
 class AppRoutes{
-  static const INITIAL = "/";
+  static const INITIAL = "/start";
   static const APPLICATION = "/application";
-  static const SiGNIN = "/SIGNIN";
+  static const SIGNIN = "/SIGNIN";
   static const REGISTER = "/REsietser";
   static const HOMEPAGE = "/home";
 

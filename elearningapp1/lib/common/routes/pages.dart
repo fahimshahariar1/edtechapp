@@ -1,17 +1,21 @@
 import 'package:elearningapp1/common/routes/routes.dart';
 import 'package:elearningapp1/pages/application/application.dart';
 import 'package:elearningapp1/pages/application/bloc/appBloc.dart';
+import 'package:elearningapp1/pages/home/bloc/homeblocs.dart';
 
 import 'package:elearningapp1/pages/login/bloc/signinBLocs.dart';
 import 'package:elearningapp1/pages/login/signin.dart';
 import 'package:elearningapp1/pages/register/bloc/registerbloc.dart';
 import 'package:elearningapp1/pages/register/register.dart';
-import 'package:elearningapp1/startuppage.dart';
+
+import 'package:elearningapp1/welcome/welcome.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../global.dart';
+import '../../pages/home/homepage.dart';
+import '../../welcome/bloc/welcome_blocs.dart';
 
 
 class AppPages {
@@ -19,7 +23,11 @@ class AppPages {
     return [
       PageEntity(
           route: AppRoutes.INITIAL,
-          page: StartUp(),
+          page: Welcome(),
+          bloc: BlocProvider(create: (_) => WelcomeBlocs())),
+      PageEntity(
+          route: AppRoutes.SIGNIN,
+          page: Signin(),
           bloc: BlocProvider(create: (_) => SignInBloc())),
       PageEntity(
           route: AppRoutes.REGISTER,
@@ -29,6 +37,10 @@ class AppPages {
           route: AppRoutes.APPLICATION,
           page: Application(),
           bloc: BlocProvider(create: (_) => AppBlocs())),
+      PageEntity(
+          route: AppRoutes.HOMEPAGE,
+          page: Home(),
+          bloc: BlocProvider(create: (_) => HomePageBlocs())),
 
     ];
   }
