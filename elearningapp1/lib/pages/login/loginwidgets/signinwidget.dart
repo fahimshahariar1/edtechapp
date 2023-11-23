@@ -73,7 +73,7 @@ Widget buildTextfield(String hinttext, String textType,
 }
 
 
-Widget buildButton(String buttonName, void Function()? func){
+Widget buildButton(String buttonName, void Function() func){
   return GestureDetector(
     onTap: (){
       func;

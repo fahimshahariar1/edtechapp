@@ -1,4 +1,3 @@
-
 import 'package:elearningapp1/pages/home/homepage.dart';
 import 'package:elearningapp1/pages/login/signinController.dart';
 import 'package:flutter/cupertino.dart';
@@ -29,61 +28,49 @@ class _SigninState extends State<Signin> {
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.black,
         body: Column(
-
           children: [
-
-
-            Image.asset(
-                "assets/images/login2.png"),
-
-            buildTextfield("Email", "email",
-
-                    (value) {
-                  context.read<SignInBloc>().add(EmailEvent(value));
-                }
-
-            ),
-            buildTextfield("Password", "pass",
-                    (value) {
-                  context.read<SignInBloc>().add(PassEvent(value));
-                }
-
-            ),
+            Image.asset("assets/images/login2.png"),
+            buildTextfield("Email", "email", (value) {
+              context.read<SignInBloc>().add(EmailEvent(value));
+            }),
+            buildTextfield("Password", "pass", (value) {
+              context.read<SignInBloc>().add(PassEvent(value));
+            }),
             TextButton(
-              onPressed: () {
-
-
-              },
+              onPressed: () {},
               child: Text(
                 "Forgot Password",
                 style: TextStyle(
                   color: AppColors.buttonColor,
                 ),
-              ),),
-            GestureDetector(
-              onTap: () {
-
-                 SignInController(context).handleSignIn("email");
-                 Navigator.push(context, MaterialPageRoute(builder: (context)=>const Home()));
-
-              },
-              child: Container(
-                height: 30.h,
-                width: 300.w,
-                decoration: BoxDecoration(
-                    color: AppColors.buttonColor,
-                    borderRadius: BorderRadius.circular(40)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-
-                    const Text(
-                      "Log In",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    )
-                  ],
-                ),
               ),
+            ),
+            // GestureDetector(
+            //   onTap: () {
+            //     SignInController(context).handleSignIn("email");
+            //   },
+            //   child: Container(
+            //     height: 30.h,
+            //     width: 300.w,
+            //     decoration: BoxDecoration(
+            //         color: AppColors.buttonColor,
+            //         borderRadius: BorderRadius.circular(40)),
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.center,
+            //       children: [
+            //         const Text(
+            //           "Log In",
+            //           style: TextStyle(fontWeight: FontWeight.bold),
+            //         )
+            //       ],
+            //     ),
+            //   ),
+            // ),
+            buildButton(
+              "Log In",
+              () {
+                SignInController(context).handleSignIn("email");
+              },
             ),
           ],
         ),

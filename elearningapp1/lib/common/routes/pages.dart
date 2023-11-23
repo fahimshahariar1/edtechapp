@@ -1,15 +1,23 @@
 import 'package:elearningapp1/common/routes/routes.dart';
+import 'package:elearningapp1/pages/home/bloc/homeblocs.dart';
 import 'package:elearningapp1/pages/login/bloc/signinBLocs.dart';
 import 'package:elearningapp1/startuppage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../pages/home/homepage.dart';
 
 class AppPages {
   List<PageEntity> routes = [
     PageEntity(
         route: AppRoutes.INITIAL,
         page: StartUp(),
-        bloc: BlocProvider(create: (_) => SignInBloc()))
+        bloc: BlocProvider(create: (_) => SignInBloc())),
+
+    PageEntity(
+        route: AppRoutes.HOMEPAGE,
+        page: Home(),
+        bloc: BlocProvider(create: (_) => HomePageBlocs()))
   ];
 }
 

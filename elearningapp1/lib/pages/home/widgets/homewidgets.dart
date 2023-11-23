@@ -1,4 +1,10 @@
+import 'package:dots_indicator/dots_indicator.dart';
+import 'package:elearningapp1/pages/home/bloc/homeblocs.dart';
+import 'package:elearningapp1/pages/home/bloc/homeevents.dart';
+import 'package:elearningapp1/pages/home/bloc/homestate.dart';
+import 'package:elearningapp1/pages/login/loginwidgets/signinwidget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../common/values/colors.dart';
@@ -40,8 +46,7 @@ Widget homePageText(String text) {
   );
 }
 
-
-Widget searchView(){
+Widget searchView() {
   return Row(
     children: [
       Container(
@@ -59,23 +64,18 @@ Widget searchView(){
               height: 16.w,
               child: Icon(Icons.search),
             ),
-
             Container(
               width: 240.w,
               height: 40.h,
               child: TextField(
-
                 decoration: InputDecoration(
-                    hintText: "Search Courses", hintStyle: TextStyle(
-                    color: AppColors.fontcolor2
-                )
-                ),
+                    hintText: "Search Courses",
+                    hintStyle: TextStyle(color: AppColors.fontcolor2)),
               ),
             )
           ],
         ),
       ),
-
       GestureDetector(
         child: Container(
           width: 40.w,
@@ -90,5 +90,87 @@ Widget searchView(){
         ),
       )
     ],
+  );
+}
+
+Widget sliderview(BuildContext context, HomePageState state) {
+  return Column(
+    children: [
+      Container(
+        margin: EdgeInsets.only(top: 20.h),
+        height: 162.h,
+        width: 325.w,
+        child: PageView(
+          onPageChanged: (value) {
+            context.read<HomePageBlocs>().add(HomePageDots(value));
+          },
+
+          children: [
+            sliderContainer(),
+            sliderContainer(),
+            sliderContainer(),
+          ],
+        ),
+      ),
+      Container(
+        child: DotsIndicator(
+          dotsCount:3,
+          position: state.index,
+
+        ),
+      )
+    ],
+  );
+}
+
+Widget sliderContainer({String path = "assets/icons/art.png"}) {
+  return Container(
+    width: 325.w,
+    height: 162.h,
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20.h),
+        image:
+            DecorationImage(fit: BoxFit.fill, image: AssetImage(path))),
+  );
+}
+
+Widget menuView(){
+  return Column(
+    children: [
+      Container(
+        width: 325.w,
+        margin: EdgeInsets.only(top: 15.h),
+        child: Row(
+          children: [
+           reusableSubText(),
+          ],
+        ),
+      ),
+      reusableMenuText("ALL"),
+      reusableMenuText("Popular"),
+      reusableMenuText("Newest"),
+    ],
+  );
+}
+
+Widget reusableSubText(){
+  return  Container(
+    child: Text("Let's Explore The Latest Courses!"),
+  );
+}
+
+
+Widget reusableMenuText(String menuText){
+  return Container(
+    child: Row(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(7.w),
+          ),
+          child: reusableTexts(menuText),
+        )
+      ],
+    ),
   );
 }
