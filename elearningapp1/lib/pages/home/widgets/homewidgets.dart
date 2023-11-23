@@ -2,7 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:elearningapp1/pages/home/bloc/homeblocs.dart';
 import 'package:elearningapp1/pages/home/bloc/homeevents.dart';
 import 'package:elearningapp1/pages/home/bloc/homestate.dart';
-import 'package:elearningapp1/pages/login/loginwidgets/signinwidget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -173,7 +173,7 @@ Widget reusablesubTitleText(String menuText) {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(7.w),
           ),
-          child: reusableTexts(menuText),
+          child: Text(menuText),
         )
       ],
     ),
@@ -183,7 +183,7 @@ Widget reusablesubTitleText(String menuText) {
 Widget reusableMenuText(String text) {
   return  Container(
     decoration: BoxDecoration(color: Colors.red),
-    child: reusableTexts(text),
+    child: Text(text),
 
   );
 }

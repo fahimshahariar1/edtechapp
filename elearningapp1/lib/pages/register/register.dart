@@ -1,15 +1,11 @@
-import 'package:elearningapp1/pages/register/registercontroller.dart';
+import 'package:elearningapp1/pages/register/bloc/register_blocs.dart';
+import 'package:elearningapp1/pages/register/bloc/register_events.dart';
+import 'package:elearningapp1/pages/register/bloc/register_states.dart';
+import 'package:elearningapp1/pages/register/registerController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../common/values/colors.dart';
-import '../login/bloc/signinBLocs.dart';
-import '../login/bloc/signinEvents.dart';
-import '../login/loginwidgets/signinwidget.dart';
-import '../login/signinController.dart';
-import 'bloc/registerbloc.dart';
-import 'bloc/registerstates.dart';
+import '../sign_in/widgets/sign_in_widgets.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -21,46 +17,71 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<RegisterBloc,RegisterStates>(builder: (context,state){
-      return Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.black,
-        body: Column(
-          children: [
-            Image.asset("assets/images/login2.png"),
-            buildTextfield("Name", "name", (value) {
-              context.read<SignInBloc>().add(EmailEvent(value));
-            }),
-            buildTextfield("Email", "email", (value) {
-              context.read<SignInBloc>().add(PassEvent(value));
-            }),
-            buildTextfield("Password", "pass", (value) {}),
-            buildTextfield("Confirm Password", "confirmpass", (value) {}),
-            SizedBox(
-              height: 30.h,
-            ),
-            GestureDetector(
-              onTap: () {
-                RegisterController(context).handleEmailRegister();
-              },
-              child: Container(
-                height: 30.h,
-                width: 300.w,
-                decoration: BoxDecoration(
-                    color: AppColors.buttonColor,
-                    borderRadius: BorderRadius.circular(40)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "Register",
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                    )
-                  ],
-                ),
+    return BlocBuilder<RegisterBlocs, RegisterStates>(builder: (context, state){
+      return Container(
+        color: Colors.white,
+        child: SafeArea(
+          child: Scaffold(
+            appBar: buildAppbar("Sign Up"),
+            body: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Center(
+                      child: reusabletexts("Enter Your Details Below & Sign Up")),
+                  Container(
+                    margin: EdgeInsets.only(top: 36.h),
+                    padding: EdgeInsets.only(left: 25.w, right: 25.w),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        reusabletexts("User Name"),
+                        buildtextfield("Enter Your User Name", "name", "user",
+                                (value) {
+                               context.read<RegisterBlocs>().add(UsernameEvent(value));
+                            }),
+                        reusabletexts("Email"),
+                        buildtextfield("Enter Your Email", "email", "user",
+                                (value) {
+                               context.read<RegisterBlocs>().add(EmailEvent(value));
+                            }),
+                        reusabletexts("Password"),
+                        buildtextfield(
+                          "Enter Your Password",
+                          "pass",
+                          "lock",
+                              (value) {
+                            context.read<RegisterBlocs>().add(PasswordEvent(value));
+                          },
+                        ),
+                        reusabletexts("Re-enter Password"),
+                        buildtextfield(
+                          "Re-enter Your Password",
+                          "pass",
+                          "lock",
+                              (value) {
+                            context.read<RegisterBlocs>().add(RepasswordEvent(value));
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 25, bottom: 25),
+                    child: reusabletexts(
+                        "By Creating Your account you have to agree \nwith our terms and conditions"),
+                  ),
+                  buildloginandRegButton("Sign Up", "login", () {
+                    // Navigator.pushNamed(context, "register");
+                    RegisterController(context).handleEmailRegister();
+                  }),
+                ],
               ),
             ),
-          ],
+          ),
         ),
       );
     });
