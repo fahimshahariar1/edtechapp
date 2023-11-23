@@ -11,6 +11,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../global.dart';
+
 
 class AppPages {
   List<PageEntity> routes() {
@@ -47,6 +49,12 @@ class AppPages {
         var result = routes().where((element) =>
         element.route == settings.name);
         if (result.isNotEmpty){
+          bool deviceFirstOpen = Global.storageService.getDeviceFirstOpen();
+
+          if(result.first.route==AppRoutes.INITIAL&& deviceFirstOpen){
+            return MaterialPageRoute(builder: (_)=> Signin(),settings: settings);
+          }
+
           return MaterialPageRoute(builder: (_)=> result.first.page, settings: settings);
         }
       }

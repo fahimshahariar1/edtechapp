@@ -1,8 +1,10 @@
 
+import 'package:elearningapp1/common/values/constants.dart';
 import 'package:elearningapp1/pages/login/login.dart';
 import 'package:flutter/material.dart';
 
 import 'common/values/colors.dart';
+import 'global.dart';
 
 
 class StartUp extends StatefulWidget {
@@ -61,6 +63,8 @@ class _StartUpState extends State<StartUp> {
                     ),
                     child: InkWell(
                       onTap: () {
+
+                        Global.storageService.setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_TIME, true);
                         Navigator.push(
                           context,
                           MaterialPageRoute(

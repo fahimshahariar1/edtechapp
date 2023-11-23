@@ -43,6 +43,8 @@ dependencies:
   firebase_auth: ^4.7.2
   flashy_tab_bar2: ^0.0.6
   fluttertoast:
+  shared_preferences:
+
 
 dev_dependencies:
   flutter_test:
